@@ -8,7 +8,7 @@ import java.util.Scanner;
  * 
  * @author	n-c0de-r
  * @author	jonasblome
- * @author GitYusuf
+ * @author	GitYusuf
  * @version	17.07.2021
  */
 public class WordParser {
@@ -26,7 +26,7 @@ public class WordParser {
 		try {
 			s = new Scanner(f);
 			while (s.hasNextLine()) {
-				w.add(s.nextLine());
+				w.add(s.nextLine().toUpperCase());
 			}
 			s.close();
 		} catch (FileNotFoundException e) {
