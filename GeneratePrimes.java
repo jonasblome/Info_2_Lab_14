@@ -5,7 +5,7 @@ import java.util.Random;
  * 
  * @author	n-c0de-r
  * @author	jonasblome
- * @author GitYusuf
+ * @author	GitYusuf
  * @version	17.07.2021
  */
 public class GeneratePrimes {
