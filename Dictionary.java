@@ -15,7 +15,10 @@ import java.util.LinkedList;
 public class Dictionary {
 	private final int HASH_MULTIPLIER;
 	public ArrayList<LinkedList<String>> wordHashes;
-
+	
+	/**
+	 * Constructor of dictionary class.
+	 */
 	public Dictionary() {
 		GeneratePrimes p = new GeneratePrimes();
 		HASH_MULTIPLIER = p.generatePrime();
@@ -116,17 +119,20 @@ public class Dictionary {
 	 * @param word	Word to be found.
 	 */
 	public String checkPermutations(String word) {	
+		//Get the list containing the search word
 		LinkedList<String> list = getWords(word);
+		System.out.println("Found the word: \"" + word + "\" in list: \n" + list);
 		
-		String perms = "";
-			
+		ArrayList<String> perms = new ArrayList<>();
+		
+		//Look for permutations of the word and print the result
 		for (String element : list) {
 			if (isPermutation(element, word)) {
-				perms = perms + ", " + element;
-				perms = perms.substring(1, perms.length());
+				perms.add(element);
 			}
 		}
-		return perms;
+		System.out.println("\nThe permutations of \"" + word + "\" are:");
+		return perms.toString();
 	}
 	
 	/**
