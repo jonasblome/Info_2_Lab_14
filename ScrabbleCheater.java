@@ -1,3 +1,4 @@
+
 /**
  * Main runner class of the Scrabble Cheater app.
  * 
@@ -10,6 +11,8 @@ public class ScrabbleCheater {
 
 	public static void main(String[] args) {
 		Dictionary dict = new Dictionary();
+		
+		System.out.println(dict.checkPermutations("sgesals"));
 	}
 
 }
