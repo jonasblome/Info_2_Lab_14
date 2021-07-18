@@ -48,7 +48,6 @@ public class Dictionary {
 		for (String word : words) {		
 			// Generate hash values and set as current index
 			int index = generateHash(word);
-//			LinkedList<String> currentList = wordHashes.get(index);
 			
 			// Check if the word is already in the LinkedList
             if (wordHashes.get(index) == null) {
@@ -121,7 +120,7 @@ public class Dictionary {
 	public String checkPermutations(String word) {	
 		//Get the list containing the search word
 		LinkedList<String> list = getWords(word);
-		System.out.println("Found the word: \"" + word + "\" in list: \n" + list);
+		System.out.println("\"" + word + "\" might be in this list: \n" + list);
 		
 		ArrayList<String> perms = new ArrayList<>();
 		
@@ -130,6 +129,10 @@ public class Dictionary {
 			if (isPermutation(element, word)) {
 				perms.add(element);
 			}
+		}
+		
+		if (perms.isEmpty()) {
+			return "There is no permutation of \"" + word + "\" in any list!";
 		}
 		System.out.println("\nThe permutations of \"" + word + "\" are:");
 		return perms.toString();
