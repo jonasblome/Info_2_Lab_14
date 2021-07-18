@@ -26,7 +26,11 @@ public class WordParser {
 		try {
 			s = new Scanner(f);
 			while (s.hasNextLine()) {
-				w.add(s.nextLine().toUpperCase());
+				//Only get 7 letter words, task 3
+				String word = s.nextLine();
+				if (word.length() == 7) {
+					w.add(word);
+				}
 			}
 			s.close();
 		} catch (FileNotFoundException e) {
