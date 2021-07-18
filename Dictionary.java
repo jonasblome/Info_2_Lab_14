@@ -104,7 +104,7 @@ public class Dictionary {
 	 * @param inputWord	The word to generate hash for.
 	 * @return	Hash value.
 	 */
-	private LinkedList<String> getWords(String inputWord) {
+	private LinkedList<String> getWordList(String inputWord) {
 		//Generate the word's hash value as an index
 		int hash = generateHash(inputWord);
 		
@@ -119,7 +119,7 @@ public class Dictionary {
 	 */
 	public String checkPermutations(String word) {	
 		//Get the list containing the search word
-		LinkedList<String> list = getWords(word);
+		LinkedList<String> list = getWordList(word);
 		System.out.println("\"" + word + "\" might be in this list: \n" + list);
 		
 		ArrayList<String> perms = new ArrayList<>();
@@ -156,10 +156,10 @@ public class Dictionary {
         Arrays.sort(chars1);
         Arrays.sort(chars2);
         
-       listWord = new String(chars1);
-       inputWord = new String(chars2);
+        listWord = new String(chars1);
+        inputWord = new String(chars2);
        
-       if (listWord.equals(inputWord)) {
+        if (listWord.equals(inputWord)) {
     	   return true;
        }
        return false;
