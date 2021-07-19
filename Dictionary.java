@@ -120,6 +120,12 @@ public class Dictionary {
 	public String checkPermutations(String word) {	
 		//Get the list containing the search word
 		LinkedList<String> list = getWordList(word);
+		
+		//Guard against null entry lists
+		if (list == null) {
+			return "No list of words found for \"" + word + "\"";
+		}
+		
 		System.out.println("\"" + word + "\" might be in this list: \n" + list);
 		
 		ArrayList<String> perms = new ArrayList<>();
