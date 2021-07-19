@@ -33,10 +33,17 @@ public class ScrabbleCheater {
 		System.out.println("Type in a 7 character word, to find it's permutations to cheat.\n"
 				+ "Type 'quit' or hit the Q button when you are finished.\n");
 		
-		while (!word.toLowerCase().equals("quit") || !word.toLowerCase().equals("q")) {
+		boolean run = true;
+		while (run) {
 			System.out.print("Input here: ");
 			word = s.nextLine();
-			if (word.length() != 7) {
+			
+			//Quit condition
+			if (word.equals("quit") || word.equals("q")) {
+				run = false;
+				System.out.println("\nGood bye!");
+				break;
+			} else if (word.length() != 7) {
 				System.out.println("\nPlease type in exactly 7 characters.");
 				break;
 			}
