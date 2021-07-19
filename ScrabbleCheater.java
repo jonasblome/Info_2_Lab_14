@@ -31,7 +31,7 @@ public class ScrabbleCheater {
 		String word = "";
 		
 		System.out.println("Type in a 7 character word, to find it's permutations to cheat.\n"
-				+ "Type 'quit' or hit the Q button when you are finished.\\n");
+				+ "Type 'quit' or hit the Q button when you are finished.\n");
 		
 		while (!word.toLowerCase().equals("quit") || !word.toLowerCase().equals("q")) {
 			System.out.print("Input here: ");
