@@ -1,3 +1,5 @@
+import java.util.HashSet;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -11,16 +13,47 @@ import java.util.Scanner;
  * @version	17.07.2021
  */
 public class ScrabbleCheater {
-
+	private final static int MAGIC_SCRABBLE_NUMBER = 7;
+	private static Dictionary[] dictionaries;
+	
 	public static void main(String[] args) {
 		ScrabbleCheater cheater = new ScrabbleCheater();
-		Dictionary dict = new Dictionary();
+		dictionaries = new Dictionary[MAGIC_SCRABBLE_NUMBER + 1];
 		
-		System.out.println(dict.checkPermutations("sgesals") + "\n");
+		for(int i = 2; i <= MAGIC_SCRABBLE_NUMBER; i++) {
+			dictionaries[i] = new Dictionary(i);
+		}
 		
-		System.out.println("--------------------");
+		String randomWord = cheater.randomString(MAGIC_SCRABBLE_NUMBER);
 		
-		cheater.findWord(dict);
+		Bag bag = new Bag(randomWord);
+		HashSet<String> substrings = bag.getSubstrings();
+		HashSet<String> foundWords = new HashSet<>();
+		for(String substring : substrings) {
+			int stringLength = substring.length();
+			String foundWord = dictionaries[stringLength].checkPermutations(substring);
+			if (foundWord != null) {
+				foundWords.add(foundWord);
+			}
+		}
+		
+		System.out.println("These are the matching words for the letters " + randomWord);
+		System.out.println(foundWords);
+//		
+//		System.out.println("--------------------");
+//		
+//		cheater.findWord(dict);
+	}
+	
+	private String randomString(int letterAmount) {
+		Random rand = new Random();
+		String resultString = "";
+		for(int i = 0; i < letterAmount; i++) {
+			int random = rand.nextInt(26) + 65;
+			char letter = (char)random;
+			resultString += letter;
+		}
+		return resultString;
 	}
 	
 	/**

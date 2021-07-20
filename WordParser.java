@@ -18,7 +18,7 @@ public class WordParser {
 	 * 
 	 * @return	ArrayList of names.
 	 */
-	public ArrayList<String> getWords() {
+	public ArrayList<String> getWords(int wordLength) {
 		ArrayList<String> w = new ArrayList<>();
 		
 		File f = new File ("./scrabble.txt");
@@ -28,7 +28,7 @@ public class WordParser {
 			while (s.hasNextLine()) {
 				//Only get 7 letter words, task 3
 				String word = s.nextLine();
-				if (word.length() == 7) {
+				if (word.length() == wordLength) {
 					w.add(word);
 				}
 			}
@@ -39,5 +39,4 @@ public class WordParser {
 		}
 		return w;
 	}
-	
 }

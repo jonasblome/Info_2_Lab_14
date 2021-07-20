@@ -19,21 +19,21 @@ public class Dictionary {
 	/**
 	 * Constructor of dictionary class.
 	 */
-	public Dictionary() {
+	public Dictionary(int wordLength) {
 		GeneratePrimes p = new GeneratePrimes();
 		HASH_MULTIPLIER = p.generatePrime();
-		setupDictionary();
+		setupDictionary(wordLength);
 	}
 
 	/**
 	 * Generate a new dictionary with hash values.
 	 * @throws IOException 
 	 */
-	private void setupDictionary() {
+	private void setupDictionary(int wordLength) {
 		int collisions = 0;
 		
 		WordParser w = new WordParser();
-		ArrayList<String> words = w.getWords();
+		ArrayList<String> words = w.getWords(wordLength);
 
 		wordHashes = new ArrayList<>();
 		
@@ -69,9 +69,9 @@ public class Dictionary {
 			}
 
 		}
-		System.out.println("There are " + wordHashes.size() + " entries in the table.\n");
-		System.out.println("There are " + collisions + " collisions in the table.\n");
-		System.out.println("Longest chain is " + longestChain +"\n");
+//		System.out.println("There are " + wordHashes.size() + " entries in the table.\n");
+//		System.out.println("There are " + collisions + " collisions in the table.\n");
+//		System.out.println("Longest chain is " + longestChain +"\n");
 	}
 	
 	//Helper Methods start here
@@ -123,10 +123,11 @@ public class Dictionary {
 		
 		//Guard against null entry lists
 		if (list == null) {
-			return "No list of words found for \"" + word + "\"";
+			//return "No list of words found for \"" + word + "\"";
+			return null;
 		}
 		
-		System.out.println("\"" + word + "\" might be in this list: \n" + list);
+		//System.out.println("\"" + word + "\" might be in this list: \n" + list);
 		
 		ArrayList<String> perms = new ArrayList<>();
 		
@@ -138,9 +139,10 @@ public class Dictionary {
 		}
 		
 		if (perms.isEmpty()) {
-			return "There is no permutation of \"" + word + "\" in any list!";
+			//return "There is no permutation of \"" + word + "\" in any list!";
+			return null;
 		}
-		System.out.println("\nThe permutations of \"" + word + "\" are:");
+		//System.out.println("\nThe permutations of \"" + word + "\" are:");
 		return perms.toString();
 	}
 	
