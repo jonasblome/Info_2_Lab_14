@@ -2,6 +2,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 
+/**
+ * Class to generate a list of substrings from a word.
+ * 
+ * @author	n-c0de-r
+ * @author	jonasblome
+ * @version	20.07.2021
+ */
+
 public class Bag {
 	private HashSet<String> substrings;
 	
