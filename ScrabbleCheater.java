@@ -29,6 +29,7 @@ public class ScrabbleCheater {
 		Bag bag = new Bag(randomWord);
 		HashSet<String> substrings = bag.getSubstrings();
 		HashSet<String> foundWords = new HashSet<>();
+		
 		for(String substring : substrings) {
 			int stringLength = substring.length();
 			String foundWord = dictionaries[stringLength].checkPermutations(substring);
@@ -39,10 +40,6 @@ public class ScrabbleCheater {
 		
 		System.out.println("These are the matching words for the letters " + randomWord);
 		System.out.println(foundWords);
-//		
-//		System.out.println("--------------------");
-//		
-//		cheater.findWord(dict);
 	}
 	
 	private String randomString(int letterAmount) {
